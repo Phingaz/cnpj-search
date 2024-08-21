@@ -1,0 +1,31 @@
+#empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  text-align: center;
+  color: var(--h2-color);
+  padding: 20px;
+  animation: fadeIn var(--transition-time);
+
+  svg {
+    width: 60px;
+    aspect-ratio: 1;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+
+  h2 {
+    color: var(--h2-color);
+    font-weight: 600;
+  }
+
+  p {
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--p-color);
+  }
+}

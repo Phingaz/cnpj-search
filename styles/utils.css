@@ -1,0 +1,118 @@
+.visible {
+  display: block;
+  animation: fadeIn var(--transition-time) ease-in-out;
+}
+
+@media (min-width: 750px) {
+  main {
+    height: calc(100vh - var(--body-padding) * 2);
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+    --body-padding: 20px;
+  }
+
+  main {
+    flex-direction: column;
+
+    #search {
+      .search-container {
+        width: auto;
+      }
+    }
+
+    #state {
+      border-radius: var(--border-radius);
+      min-height: calc(100vh - var(--body-padding) * 12);
+      height: auto;
+
+      #empty-state {
+        height: auto;
+      }
+
+      #loading {
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+      }
+
+      .data {
+        height: auto;
+        padding: 20px;
+
+        section {
+          .info-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: var(--border-radius);
+  height: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #cacaca;
+}
+::-webkit-scrollbar-track {
+  background: light-dark(#fafafa, #374151);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cacaca;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

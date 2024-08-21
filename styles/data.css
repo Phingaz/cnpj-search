@@ -1,0 +1,128 @@
+.data {
+  padding: 20px;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: calc(100% - 80px);
+  width: 100%;
+  display: none;
+  animation: fadeIn var(--transition-time);
+
+  &:focus {
+    outline: none;
+  }
+
+  section {
+    margin-bottom: 23px;
+
+    h3 {
+      color: var(--h2-color);
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: start;
+      padding: 12px;
+      border-radius: 4px;
+      background-color: #f5f5f5;
+
+      i {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        color: #666;
+      }
+
+      div {
+        flex-grow: 1;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .label {
+        color: var(--h2-color);
+        font-weight: 500;
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+      }
+
+      .value {
+        font-weight: 500;
+        color: var(--h1-color);
+        font-size: 0.95rem;
+        letter-spacing: 0.11px;
+        text-transform: capitalize;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        
+        &:focus {
+          outline: none;
+        }
+        
+        &.is-email {
+          text-transform: lowercase;
+        }
+        
+        &.can-edit {
+          border-bottom: 1px solid #cdcdcd;
+        }
+
+        &.is-cnpj {
+          border: none;
+        }
+      }
+    }
+
+    &:last-child {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    #save-button,
+    #reset-button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--transition-time);
+    }
+
+    #save-button {
+      border: 2px solid var(--primary-color);
+      background-color: var(--primary-color);
+
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+    }
+
+    #reset-button {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      
+      &:hover {
+        color: white;
+        border: 2px solid var(--secondary-color);
+        background-color: var(--secondary-color);
+      }
+    }
+  }
+}

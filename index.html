@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Information</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/search.css" />
+    <link rel="stylesheet" href="/styles/empty-state.css" />
+    <link rel="stylesheet" href="/styles/loading.css" />
+    <link rel="stylesheet" href="/styles/toggle.css" />
+    <link rel="stylesheet" href="/styles/data.css" />
+    <link rel="stylesheet" href="/styles/utils.css" />
+  </head>
+  <body>
+    <main>
+      <form id="search">
+        <h1>Pesquisa de informações da empresa</h1>
+        <div class="search-container">
+          <input
+            type="text"
+            id="input-cnpj"
+            placeholder="Digite o número do CNPJ (apenas números)"
+            aria-label="Digite o número do CNPJ"
+            required
+          />
+          <p id="errorAlert" role="alert">Error</p>
+          <button id="search-button" type="submit" aria-label="Consultar">
+            Consultar
+          </button>
+        </div>
+      </form>
+
+      <div id="state" class="card">
+        <div class="card-header">
+          <h2 class="card-title">Informações da Empresa</h2>
+          <div class="toggle-switch-container">
+            <label class="toggle-switch">
+              <input type="checkbox" id="editToggle" />
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Modo de edição</span>
+          </div>
+        </div>
+
+        <div id="empty-state">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+          <h2>Nenhuma empresa encontrada</h2>
+          <p>
+            Insira um CNPJ válido na caixa de pesquisa e clique em "Consultar"
+            para visualizar informações da empresa.
+          </p>
+        </div>
+
+        <div id="loading" aria-live="polite">
+          <div class="loading-content">
+            <div
+              id="loadingSpinner"
+              class="spinner"
+              aria-label="Carregando"
+            ></div>
+            <p>Buscando informações da empresa...</p>
+          </div>
+        </div>
+
+        <form id="data" class="data">
+          <section>
+            <h3>Informações Básicas</h3>
+            <div class="info-grid">
+              <div class="info-item" id="nome_fantasia"></div>
+              <div class="info-item" id="razao_social"></div>
+              <div class="info-item" id="cnpj"></div>
+              <div class="info-item" id="data_inicio_atividade"></div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Status</h3>
+            <div class="info-grid">
+              <div class="info-item" id="situacao_cadastral"></div>
+              <div class="info-item" id="data_situacao_cadastral"></div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Atividade</h3>
+            <div class="info-grid">
+              <div class="info-item" id="cnae_fiscal_descricao"></div>
+              <div class="info-item" id="natureza_juridica"></div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Endereço</h3>
+            <div class="info-item" id="fullAddress"></div>
+          </section>
+
+          <section>
+            <h3>Contato</h3>
+            <div class="info-grid">
+              <div class="info-item" id="ddd_telefone_1"></div>
+              <div class="info-item" id="email"></div>
+            </div>
+          </section>
+
+          <section>
+            <button id="save-button" type="submit" aria-label="Salvar">
+              Salvar
+            </button>
+            <button id="reset-button" type="reset" aria-label="Deletar">
+              Resetar
+            </button>
+          </section>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>
